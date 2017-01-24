@@ -1,12 +1,12 @@
 import sublime_plugin
-import functools
+from functools import partial
 import os
 
 
 class NewFileAtCommand(sublime_plugin.WindowCommand):
     def run(self, dirs):
         self.window.show_input_panel(
-            "File Name:", "", functools.partial(self.on_done, dirs[0]),
+            "File Name:", "", partial(self.on_done, dirs[0]),
             None, None
         )
 
